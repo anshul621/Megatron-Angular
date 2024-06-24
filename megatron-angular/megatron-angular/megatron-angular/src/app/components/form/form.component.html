@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+          <h1 class="display-4 mt-0 mb-4">Megatron Crypto Service</h1>
+        </div>
+    </div>
+  
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>Select Secret Type:</mat-label>
+        <mat-select [(ngModel)]="selectedSecretType">
+          <mat-option value="aeps_secret">aeps_secret</mat-option>
+          <mat-option value="upi_secret">upi_secret</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>Enter Text:</mat-label>
+        <input matInput type="text" [(ngModel)]="inputText">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-container">
+      <mat-form-field class="form-field">
+        <mat-label>Select Action:</mat-label>
+        <mat-select [(ngModel)]="selectedAction">
+          <mat-option value="encrypt">Encrypt</mat-option>
+          <mat-option value="decrypt">Decrypt</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <button mat-raised-button color="primary" class="mb-1" (click)="submit()">Submit</button>
+    <button mat-raised-button color="accent" class="mb-10 ml-10" (click)="reset()">Reset</button>
+  
+    <div class="row mt-4" *ngIf="outputMessage">
+      <div class="col-md-12">
+        <div class="card custom-card">
+          <div class="card-body">
+            <h2 class="card-title mb-4" style="color: black;">Output:</h2>
+            <textarea class="form-control custom-textarea" rows="4" cols="50" readonly>{{ outputMessage }}</textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
